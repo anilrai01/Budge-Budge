@@ -31,17 +31,31 @@
 
     <section id="bottom">
         <div class="tab">
-            <select name="type" id="typpe">
-                <option value="income">Income +</option>
-                <option value="expense">Expense -</option>
+            <select class="select_type">
+                <option value="inc" selected>Income +</option>
+                <option value="exp">Expense -</option>
             </select>
-            <input type="text" placeholder="Add Description">
-            <input type="text" placeholder="Value">
-            <button type="button">Ok</button>
+            <input type="text" placeholder="Add Description" class="descrip" value="">
+            <input type="text" placeholder="Value" class="value" value="">
+            <button type="button" class="add_btn">Ok</button>
         </div>
 
         <div class="ie-part">
+            <div class="income">
+                <div class="income-title">Income</div>
 
+                <div class="income-list">
+                    
+                </div>
+            </div>
+
+            <div class="expense">
+                <div class="expense-title">Expense</div>
+
+                <div class="expense-list">
+
+                </div>
+            </div>
         </div>
     </section>
 
