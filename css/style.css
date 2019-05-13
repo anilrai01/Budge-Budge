@@ -10,6 +10,38 @@ body {
   font-family: 'Roboto', sans-serif;
   font-weight: 300; }
 
+.ie-part {
+  width: 70%;
+  height: auto;
+  padding: 20px;
+  margin: 60px auto;
+  display: grid;
+  grid-template-columns: auto auto; }
+  .ie-part .income, .ie-part .expense {
+    margin: 0 70px 0 0; }
+    .ie-part .income .income-title, .ie-part .expense .income-title {
+      font-size: 22px;
+      color: #22BC0A; }
+
+.item {
+  margin-top: 20px;
+  width: 100%;
+  height: 60px;
+  border-top: 2px solid #ccc;
+  border-bottom: 2px solid #ccc; }
+  .item .item_description, .item .item_value {
+    float: left;
+    font-size: 18px;
+    line-height: 50px; }
+  .item .item_value {
+    float: right; }
+
+.expense {
+  margin: 0 0 0 50px; }
+  .expense .expense-title {
+    font-size: 22px;
+    color: #E96C3C; }
+
 #top {
   position: relative;
   top: 0;

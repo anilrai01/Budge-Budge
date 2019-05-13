@@ -18,7 +18,7 @@ var budgetController = (function(){
     var data = {
         allItems: {
             exp: [],
-            inc: [],
+            inc: []
         },
 
         totals: {
@@ -51,9 +51,10 @@ var budgetController = (function(){
             //Return new item
             return newItem;
         },
-        testing: function(){
-            console.log(data);
-        }
+
+        // testing: function(){
+        //     console.log(data);
+        // }
     }
 
 })();
@@ -71,7 +72,7 @@ var UIController = (function(){
     // Returning public function method for transferring info about the input from form
     return {
         getinput: function(){
-
+            // It update the object everytime it is called
             return {
                 type: document.querySelector(DOMstrings.inputType).value, // Will be either inc or exp
                 description: document.querySelector(DOMstrings.inputDescription).value,
@@ -104,6 +105,7 @@ var controller = (function(budgetCtrl, UICtrl){
         document.addEventListener('keypress', function(event){
             if(event.keyCode === 13 || event.which === 13){
                 addItemCtrl();
+                // console.log('pressed');
             }
         });
     }
@@ -118,6 +120,8 @@ var controller = (function(budgetCtrl, UICtrl){
 
         //2. Add the item to budget controller
         newItem = budgetCtrl.addItem(input.type, input.description, input.value);
+        // console.log(newItem);
+
         
         //3. Update UI
 

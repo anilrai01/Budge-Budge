@@ -1,0 +1,48 @@
+.ie-part{
+    width: 70%;
+    height: auto;
+    padding: 20px;
+    margin: 60px auto;
+    // background: red;
+    display: grid;
+    grid-template-columns: auto auto;
+
+    .income{
+        // background: aqua;
+        margin: 0 70px 0 0; 
+
+        .income-title{
+            font-size: 22px;
+            color: color(income);
+        }
+    }
+    }
+   
+        .item{
+            // display: block;
+            margin-top: 20px;
+            width: 100%;
+            height: 60px;
+            border-top: 2px solid #ccc;
+            border-bottom: 2px solid #ccc;
+            
+            .item_description{
+                float: left;
+                font-size: 18px;
+                line-height: 50px;
+            }
+            .item_value{
+                @extend .item_description;
+                float: right;
+            }
+        }
+
+    .expense{
+        // background: pink;
+        @extend .income;
+        margin: 0 0 0 50px;
+        .expense-title{
+            font-size: 22px;
+            color: color(expense);
+        }
+    }
