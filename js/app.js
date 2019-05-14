@@ -67,6 +67,8 @@ var UIController = (function(){
         inputDescription: '.descrip',
         inputType: '.select_type',
         inputBtn: '.add_btn',
+        incomeContainer: '.income-list',
+        expenseContainer: '.expense-list',
     };
 
     // Returning public function method for transferring info about the input from form
@@ -83,6 +85,22 @@ var UIController = (function(){
 
         addListItem: function(obj, type){
             // Create HTML string with placeholder
+            var html, newData, element;
+            if(type === 'inc'){
+                element = DOMstrings.incomeContainer;
+
+                html = '<div class="item" id="income-%id%"><div class="item_description">%description%</div><div class="item_value">%value%</div></div>'
+            }else{
+                element = DOMstrings.expenseContainer;
+                
+                html = '<div class="item" id="expense-%id%"><div class="item_description">%description%</div><div class="item_value">%value%</div></div>'
+            }
+            newData = html.replace('%id%',obj.id);
+            newData = newData.replace('%description%', obj.description);
+            newData = newData.replace('%value%', obj.value);
+
+            //Insert to HTML in DOM
+            document.querySelector(element).insertAdjacentHTML('beforeend', newData);
         },
 
         // Returning DOM strings
@@ -122,8 +140,8 @@ var controller = (function(budgetCtrl, UICtrl){
         newItem = budgetCtrl.addItem(input.type, input.description, input.value);
         // console.log(newItem);
 
-        
         //3. Update UI
+        UICtrl.addListItem(newItem, input.type);
 
         //4. Calculate Budget
 

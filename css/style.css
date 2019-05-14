@@ -21,10 +21,10 @@ body {
     margin: 0 70px 0 0; }
     .ie-part .income .income-title, .ie-part .expense .income-title {
       font-size: 22px;
-      color: #22BC0A; }
+      color: #22BC0A;
+      margin-bottom: 30px; }
 
 .item {
-  margin-top: 20px;
   width: 100%;
   height: 60px;
   border-top: 2px solid #ccc;
@@ -40,6 +40,7 @@ body {
   margin: 0 0 0 50px; }
   .expense .expense-title {
     font-size: 22px;
+    margin-bottom: 30px;
     color: #E96C3C; }
 
 #top {
