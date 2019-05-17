@@ -7,6 +7,7 @@
     <title>Budge Budge | Record your Daily Expence</title>
 </head>
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 
 <body>
@@ -16,12 +17,12 @@
             <h1>Your Available Balance for <span>May</span> is </h1>
             <h2>+ 2100</h2>
 
-            <div class="income">
+            <div class="incomee">
                 <p>Income</p>
                 <div class="ivalue">+ 5600</div>
             </div>
 
-            <div class="expense">
+            <div class="expensee">
                 <p>Expense</p>
                 <div class="evalue">- 3500</div>
             </div>
@@ -37,40 +38,86 @@
             </select>
             <input type="text" placeholder="Add Description" class="descrip" value="">
             <input type="text" placeholder="Value" class="value" value="">
-            <button type="button" class="add_btn">Ok</button>
+            <div class="add_btn"> <i class="far fa-check-circle"></i> </div>
         </div>
 
-        <div class="ie-part">
+        <div class="container clearfix">
             <div class="income">
-                <div class="income-title">Income</div>
+                <h2 class="icome__title">Income</h2>
+                
+                <div class="income__list">
+                   
+                    
+                    <div class="item clearfix" id="income-0">
 
-                <div class="income-list">
+                        <div class="item__description">Salary</div>
+                        <div class="right clearfix">
+                            <div class="item__value">+ 2,100.00</div>
 
-                    <!-- <div class="item" id="income-0">
-                        <div class="item_description">Salary</div>
-                        <div class="item_value">+ 2100</div>
+                                <div class="item__delete">
+                                    <button class="item__delete--btn">
+                                            <i class="far fa-times-circle"></i>
+                                    </button>
+                                </div>
+                        </div>
+
+                    </div>
+                    
+                    <div class="item clearfix" id="income-1">
+                        <div class="item__description">Sold car</div>
+                        <div class="right clearfix">
+                            <div class="item__value">+ 1,500.00</div>
+                            <div class="item__delete">
+                                <button class="item__delete--btn">
+                                    <i class="far fa-times-circle"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    
+                </div>
+            </div>
+            
+            
+            
+            <div class="expenses">
+                <h2 class="expenses__title">Expenses</h2>
+                
+                <div class="expenses__list">
+                   
+                    
+                    <div class="item clearfix" id="expense-0">
+                        <div class="item__description">Apartment rent</div>
+                        <div class="right clearfix">
+                            <div class="item__value">- 900.00</div>
+                            <div class="item__percentage">21%</div>
+                            <div class="item__delete">
+                                <button class="item__delete--btn">
+                                    <i class="far fa-times-circle"></i>
+                                </button>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="item" id="income-1">
-                        <div class="item_description">Bonus</div>
-                        <div class="item_value">+ 3100</div>
-                    </div> -->
-
-                </div>
-            </div>
-
-            <div class="expense">
-                <div class="expense-title">Expense</div>
-
-                <div class="expense-list">
+                    <div class="item clearfix" id="expense-1">
+                        <div class="item__description">Grocery shopping</div>
+                        <div class="right clearfix">
+                            <div class="item__value">- 435.28</div>
+                            <div class="item__percentage">10%</div>
+                            <div class="item__delete">
+                                <button class="item__delete--btn">
+                                    <i class="far fa-times-circle"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                   
                     
-                    <!-- <div class="item" id="expense-0">
-                        <div class="item_description">Bills</div>
-                        <div class="item_value">- 1000</div>
-                    </div> -->
-
                 </div>
             </div>
+        </div>
+
         </div>
     </section>
 
