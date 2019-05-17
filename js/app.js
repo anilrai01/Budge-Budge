@@ -63,12 +63,12 @@ var budgetController = (function(){
 var UIController = (function(){
     //DOM variables
     var DOMstrings = {
-        inputValue: '.value',
-        inputDescription: '.descrip',
-        inputType: '.select_type',
-        inputBtn: '.add_btn',
-        incomeContainer: '.income-list',
-        expenseContainer: '.expense-list',
+        inputType: '.add__type',
+        inputDescription: '.add__description',
+        inputValue: '.add__value',
+        inputBtn: '.add__btn',
+        incomeContainer: '.income__list',
+        expensesContainer: '.expenses__list',
     };
 
     // Returning public function method for transferring info about the input from form
@@ -89,11 +89,11 @@ var UIController = (function(){
             if(type === 'inc'){
                 element = DOMstrings.incomeContainer;
 
-                html = '<div class="item" id="income-%id%"><div class="item_description">%description%</div><div class="item_value">%value%</div></div>'
+                html = '<div class="item clearfix" id="inc-%id%"> <div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="far fa-times-circle"></i></button></div></div></div>';
             }else{
-                element = DOMstrings.expenseContainer;
+                element = DOMstrings.expensesContainer;
                 
-                html = '<div class="item" id="expense-%id%"><div class="item_description">%description%</div><div class="item_value">%value%</div></div>'
+                html = '<div class="item clearfix" id="exp-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="far fa-times-circle"></i></button></div></div></div>';
             }
             newData = html.replace('%id%',obj.id);
             newData = newData.replace('%description%', obj.description);
@@ -101,6 +101,18 @@ var UIController = (function(){
 
             //Insert to HTML in DOM
             document.querySelector(element).insertAdjacentHTML('beforeend', newData);
+        },
+
+        clearFields: function(){
+            var fields, fieldsArr;
+
+            fields = document.querySelectorAll(DOMstrings.inputDescription + ',' + DOMstrings.inputValue);
+
+            fieldsArr = Array.prototype.slice.call(fields);
+
+            fieldsArr.forEach(function(current, index, array){
+                current.value = "";
+            })
         },
 
         // Returning DOM strings
@@ -118,7 +130,7 @@ var controller = (function(budgetCtrl, UICtrl){
     
     // Set up controllers to listen the input
     var setUpEventListeners = function(){
-        document.querySelector(DOM.inputBtn).addEventListener('click', addItemCtrl);
+        document.querySelector(DOM.inputBtn).addEventListener('click', addItemCtrl  );
 
         document.addEventListener('keypress', function(event){
             if(event.keyCode === 13 || event.which === 13){
@@ -143,6 +155,8 @@ var controller = (function(budgetCtrl, UICtrl){
         //3. Update UI
         UICtrl.addListItem(newItem, input.type);
 
+        //4. Clear Fields
+        UICtrl.clearFields();
         //4. Calculate Budget
 
         //5. Display Budget to UI
