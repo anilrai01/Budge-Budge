@@ -52,9 +52,9 @@ var budgetController = (function(){
             return newItem;
         },
 
-        // testing: function(){
-        //     console.log(data);
-        // }
+        testing: function(){
+            console.log(data);
+        }
     }
 
 })();
@@ -78,7 +78,7 @@ var UIController = (function(){
             return {
                 type: document.querySelector(DOMstrings.inputType).value, // Will be either inc or exp
                 description: document.querySelector(DOMstrings.inputDescription).value,
-                value: document.querySelector(DOMstrings.inputValue).value,
+                value: parseFloat(document.querySelector(DOMstrings.inputValue).value),
             }
            
         },
@@ -112,7 +112,9 @@ var UIController = (function(){
 
             fieldsArr.forEach(function(current, index, array){
                 current.value = "";
-            })
+            });
+
+            fieldsArr[0].focus();
         },
 
         // Returning DOM strings
@@ -138,7 +140,16 @@ var controller = (function(budgetCtrl, UICtrl){
                 // console.log('pressed');
             }
         });
-    }
+    };
+
+    var updateBudget = function(){
+        //1. Calculate Budget
+
+        //2. Return the budget
+
+        //3. Display Budget to UI
+
+    };
 
     var addItemCtrl = function(){
 
@@ -148,18 +159,18 @@ var controller = (function(budgetCtrl, UICtrl){
         input = UICtrl.getinput();
         // console.log(input);
 
-        //2. Add the item to budget controller
-        newItem = budgetCtrl.addItem(input.type, input.description, input.value);
-        // console.log(newItem);
+        if(input.description !== "" && !isNaN(input.value) && input.value > 0){
+             //2. Add the item to budget controller
+            newItem = budgetCtrl.addItem(input.type, input.description, input.value);
+            // console.log(newItem);
 
-        //3. Update UI
-        UICtrl.addListItem(newItem, input.type);
+            //3. Update UI
+            UICtrl.addListItem(newItem, input.type);
 
-        //4. Clear Fields
-        UICtrl.clearFields();
-        //4. Calculate Budget
+            //4. Clear Fields
+            UICtrl.clearFields();
+        }
 
-        //5. Display Budget to UI
     };
 
     return {
