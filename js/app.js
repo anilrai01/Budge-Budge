@@ -15,7 +15,7 @@ var budgetController = (function(){
     }
 
     //Our data structure
-    var data = {
+    var data = git {
         allItems: {
             exp: [],
             inc: []
